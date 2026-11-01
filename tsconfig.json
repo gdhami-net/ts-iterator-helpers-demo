@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2025",
+    "lib": ["es2025"],
+    "types": ["node"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
+  },
+  "include": ["src", "check.ts"]
+}

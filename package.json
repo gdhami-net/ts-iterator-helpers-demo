@@ -1,0 +1,23 @@
+{
+  "name": "ts-iterator-helpers-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The first 10 refunds in a million orders, found with an array chain and with iterator helpers, with every callback counted.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "single-use": "node src/single-use.ts",
+    "map": "node src/map-entries.ts",
+    "bench": "node --expose-gc src/bench.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "lib-probe": "node lib-probe/run.ts",
+    "check": "node check.ts"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2"
+  }
+}

@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { makeOrders, type Counts } from './src/rows.ts';
 import { firstTenWithArrays, firstTenWithIterators } from './src/first-ten.ts';
+import { firstTenArrays, firstTenIterators } from './src/first-ten-plain.ts';
 import { runProbes } from './lib-probe/run.ts';
 
 let failed = 0;
@@ -31,6 +32,10 @@ check(
   arr.filter + arr.map === 1_100_000 && itr.filter + itr.map === 110,
 );
 check('both return the same ten refunds', same(fromArrays, fromIterators), fromIterators.map((r) => r.id).join(', '));
+check(
+  'the plain versions in the post (first-ten-plain.ts) return the same ten',
+  same(firstTenArrays(orders), fromArrays) && same(firstTenIterators(orders), fromArrays),
+);
 check(
   'the array chain built two 100,000-item arrays before slice kept ten',
   orders.filter((o) => o.status === 'refunded').length === 100_000 &&
